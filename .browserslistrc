@@ -1,0 +1,12 @@
+>1%
+last 2 major versions
+not dead
+not iOS < 13.4
+iOS >= 13.4
+not Safari < 13.1
+Safari >= 13.1
+not Explorer <= 11
+not op_mini all
+not op_mob > 1
+not kaios > 1
+not baidu > 1

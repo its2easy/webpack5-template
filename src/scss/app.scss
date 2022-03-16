@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+@import 'app-variables';
+@import 'vendor';
+@import 'common';
+
+@import 'base/fonts';
+
+// Test url resolving
+//.title{
+//    &:after{
+//        content: '';
+//        width: 20px;
+//        height: 20px;
+//        display: inline-block;
+//        //background-image: url("#{$assetsPath}/img/example2.jpg"); // relative path, processed with webpack
+//        //background-image: url("/static/example1.jpg"); // root path, uses copied img (by CopyWebpackPlugin)
+//    }
+//}

@@ -13,15 +13,23 @@ let prodConfig = {
 
     module: {
         rules: [
-            {
+            {  // Extract styles into .css file
                 test:/\.(s*)css$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         // importLoaders for .css @import,
-                        // 1 to handle by postcss, 2 to postcss and scss (probably wrong)
-                        options: { sourceMap: false, url: false, importLoaders: 1, modules: false }
+                        // 1 to handle by postcss, 2 to postcss and scss
+                        options: { sourceMap: false, importLoaders: 2, modules: false,
+                            url: {
+                                filter: (url, _resourcePath) => {
+                                    // Disable processing for root-relative urls under /static
+                                    //https://stackoverflow.com/questions/71254243/webpack-5-stop-webpack-from-processing-root-relative-paths-to-images-in-scss
+                                    return !/^\/static\//.test(url)
+                                },
+                            },
+                        }
                     },
                     {
                         loader: "postcss-loader",

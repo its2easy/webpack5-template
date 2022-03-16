@@ -1,0 +1,40 @@
+// Start with #{$assetsPath} instead of /static/ to process with webpack
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/fonts/Montserrat-Bold.woff2') format('woff2'),
+    url('/static/fonts/Montserrat-Bold.woff') format('woff'),
+    url('/static/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('/static/fonts/Montserrat-Regular.woff') format('woff'),
+    url('/static/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/fonts/Montserrat-Light.woff2') format('woff2'),
+    url('/static/fonts/Montserrat-Light.woff') format('woff'),
+    url('/static/fonts/Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/static/fonts/Montserrat-Medium.woff2') format('woff2'),
+    url('/static/fonts/Montserrat-Medium.woff') format('woff'),
+    url('/static/fonts/Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}

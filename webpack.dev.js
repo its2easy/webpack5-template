@@ -8,6 +8,22 @@ let devConfig = {
     },
     // eval- doesn't work with mini-css-extract-plugin
     devtool: 'cheap-module-source-map', // eval-source-map, cheap-module-source-map,
+    devServer: {
+        historyApiFallback: true,
+        open: true,
+        hot: true,
+        port: 8080,
+        client: {
+            overlay: true,
+        },
+        // static: { // This is only necessary if you want to serve static files.
+        //     directory: path.resolve(__dirname, "./dist/"),
+        // },
+        watchFiles: ["src/*.html"],
+    },
+    watchOptions: {
+        ignored: /node_modules/,
+    },
 
     module: {
         rules: [
@@ -18,16 +34,20 @@ let devConfig = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1, modules: false },
+                        options: {
+                            sourceMap: true, importLoaders: 1, modules: false,
+                            url: {
+                                filter: (url, _resourcePath) => {
+                                    // Disable processing for root-relative urls under /static
+                                    //https://stackoverflow.com/questions/71254243/webpack-5-stop-webpack-from-processing-root-relative-paths-to-images-in-scss
+                                    return !/^\/static\//.test(url)
+                                },
+                            },
+                        },
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                            sassOptions: {
-                                //fiber: fibers,//passed by default https://github.com/webpack-contrib/sass-loader#string
-                            },
-                        }
+                        options: { sourceMap: true, }
                     }
                 ],
             },
